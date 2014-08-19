@@ -1,0 +1,14 @@
+<h2><%= post.fields[:headline] %></h1>
+
+<p><%= post.fields[:content] %></p>
+<p>Posted at <%= post.fields[:publishedAt] %></p>
+<p>
+  Tags:
+  <ul>
+    <% post.tags.each do |tag| %>
+      <li><%= tag.fields[:name] %></li>
+    <% end %>
+  </ul>
+</p>
+<hr>
+<a href="/">Back</a>
