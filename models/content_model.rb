@@ -1,6 +1,6 @@
 require "contentful"
 
-class ContentfulModel < Contentful::Entry
+class ContentModel < Contentful::Entry
   class << self
     def entry_mapping
       @entry_mapping ||= superclass.descendants.map do |klass|

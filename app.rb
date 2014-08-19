@@ -7,6 +7,7 @@ set :server, "webrick"
 configure do
   I18n.default_locale = "en-US"
 
+  # load the content_model first and afterwards the other models
   require File.join(settings.root, "models", "content_model.rb")
   Dir[File.join(settings.root, "models", "*.rb")].each { |file| require file }
 end
