@@ -16,5 +16,5 @@ get "/" do
 end
 
 get "/:id" do
-  erb :show, locals: { post: BlogPost.first("sys.id" => params[:id]) }
+  erb :show, locals: { post: BlogPost.from_slug(params[:id]) }
 end

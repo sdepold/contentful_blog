@@ -1,5 +1,8 @@
 <ul>
   <% posts.each do |post| %>
-    <li><a href="/<%= post.id %>"><%= post.fields[:headline] %></a> [<%= post.fields[:publishedAt] %>]</li>
+    <li>
+      <a href="/<%= post.slug %>"><%= post.fields[:headline] %></a>
+      [<%= post.fields[:publishedAt] %>]
+    </li>
   <% end %>
 </ul>

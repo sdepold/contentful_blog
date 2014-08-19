@@ -23,7 +23,6 @@ class ContentfulModel < Contentful::Entry
 
     def all(options = {})
       locale  = options.delete(:locale) || I18n.locale
-      puts locale.inspect
       options = options.reverse_merge(
         "content_type" => content_type,
         "locale"       => locale
@@ -36,7 +35,7 @@ class ContentfulModel < Contentful::Entry
       all(options).first
     end
 
-    def find(needle)
+    def full_text_search(needle)
       first("query" => needle)
     end
 
