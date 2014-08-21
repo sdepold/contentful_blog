@@ -32,7 +32,7 @@ class ContentModel < Contentful::Entry
     end
 
     def first(options = {})
-      all(options).first
+      all(options.merge("limit" => 1)).first
     end
 
     def full_text_search(needle)
