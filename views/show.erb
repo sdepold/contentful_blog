@@ -1,12 +1,12 @@
-<h2><%= post.fields[:headline] %></h1>
+<h2><%= post.headline %></h1>
 
-<p><%= post.fields[:content] %></p>
-<p>Posted at <%= post.fields[:publishedAt] %></p>
+<p><%= post.content %></p>
+<p>Posted at <%= post.published_at %></p>
 <p>
   Tags:
   <ul>
     <% post.tags.each do |tag| %>
-      <li><%= tag.fields[:name] %></li>
+      <li><%= tag.name %></li>
     <% end %>
   </ul>
 </p>

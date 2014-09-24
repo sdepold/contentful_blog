@@ -43,6 +43,14 @@ module Content
         first("query" => needle)
       end
 
+      def has_fields(*args)
+        [*args].each do |field_name|
+          define_method(field_name.to_s) do
+            fields.public_send(:[], field_name.to_s.camelize(:lower).to_sym)
+          end
+        end
+      end
+
       def method_missing(method_name, needle, options={})
         field_name = method_name.to_s.match(/^find_by_(.+)/)
 
