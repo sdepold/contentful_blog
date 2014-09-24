@@ -12,9 +12,15 @@ configure do
 end
 
 get "/" do
-  erb :index, locals: { posts: BlogPost.all }
+  erb :index, locals: { posts: Content::BlogPost.all }
 end
 
 get "/:id" do
-  erb :show, locals: { post: BlogPost.from_slug(params[:id]) }
+  post = Content::BlogPost.from_slug(params[:id])
+
+  if post
+    erb :show, locals: { post: post }
+  else
+    status 404
+  end
 end
