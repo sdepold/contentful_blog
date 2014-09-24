@@ -51,6 +51,20 @@ module Content
         end
       end
 
+      def has_image(field_name)
+        define_method("#{field_name}_url") do
+          if public_send("#{field_name}?")
+            if asset = fields[field_name]
+              asset.fields[:file].url
+            end
+          end
+        end
+
+        define_method("#{field_name}?") do
+          fields.key?(field_name)
+        end
+      end
+
       def method_missing(method_name, needle, options={})
         field_name = method_name.to_s.match(/^find_by_(.+)/)
 

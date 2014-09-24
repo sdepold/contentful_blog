@@ -11,4 +11,10 @@
   </ul>
 </p>
 <hr>
+
+<% if post.image? %>
+<image src="<%= post.image_url %>" width="800" />
+<% end %>
+
+<hr>
 <a href="/">Back</a>
