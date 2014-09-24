@@ -1,5 +1,5 @@
 class BlogPost < ContentModel
-  CONTENT_TYPE_ID = "C33dJh6k804WqGci0Kyuk"
+  CONTENT_TYPE_ID = "5FPTMiJ7R6uycIcC4EiCYc"
 
   def self.from_slug(slug)
     find_by_headline(slug.gsub("-", " "))
